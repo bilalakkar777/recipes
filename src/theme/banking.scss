@@ -1,0 +1,39 @@
+.bg {
+    background: var(--ion-color-light);
+    --background: var(--ion-color-light);
+}
+
+.row-cards {
+    flex-wrap: nowrap;
+    padding: 20px;
+    overflow-y: scroll;
+    
+}
+
+.gradient-1 {
+    background: linear-gradient(48deg, rgba(150,231,235,1) 0%, rgba(104,116,207,1) 100%);
+    --background: linear-gradient(48deg, rgba(150,231,235,1) 0%, rgba(104,116,207,1) 100%);
+}
+.gradient-2 {
+    background: linear-gradient(48deg, rgba(150,192,235,1) 0%, rgba(161,104,207,1) 100%);
+    --background: linear-gradient(48deg, rgba(150,192,235,1) 0%, rgba(161,104,207,1) 100%);
+}
+.gradient-3 {
+    background: linear-gradient(48deg, rgba(150,235,221,1) 0%, rgba(116,207,104,1) 100%);
+    --background: linear-gradient(48deg, rgba(150,235,221,1) 0%, rgba(116,207,104,1) 100%);
+}
+
+.list-transactions {
+    background: none;
+    --background: none;
+
+    ion-item {
+        border-radius: 10px;
+        margin-bottom: 10px;
+        --padding-start:10px;
+    }
+}
+
+.padding-20 {
+    padding: 20px;
+}

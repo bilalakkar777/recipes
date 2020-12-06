@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title style="width: 100%; text-align: center;" >Categories</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card (click)="viewCard()">
+    <div >
+    <ion-img src="./../../assets/img/C1.jpg"></ion-img>
+    <div class="card-title"> Tagine Moroccan </div>
+    </div>
+  </ion-card>
+
+  <ion-card (click)="viewCard2()">
+    <div class="animated rotateIn">
+    <ion-img src="./../../assets/img/C2.jpg"></ion-img>
+    <div class="card-title"> Famous Moroccan Recipes </div>
+    </div>
+  </ion-card>
+  
+  <ion-card (click)="viewCard3()">
+    <div class="animated rollIn ">
+    <ion-img src="./../../assets/img/C3.jpg"></ion-img>
+    <div class="card-title"> Traditional Food </div>
+    </div>
+  </ion-card>
+
+
+</ion-content>

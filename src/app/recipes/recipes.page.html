@@ -1,0 +1,188 @@
+<ion-header translucent>
+  <ion-toolbar translucent style="--background:  var(--ion-color-primary)">
+      <ion-buttons (click)="showInterstitial()" slot="start">
+          <ion-back-button color="light" defaultHref="/tabs/home"></ion-back-button>
+        </ion-buttons>
+        <ion-title color="light" > {{ isLoading ? 'Loading...' : recipe.title }} </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content> 
+    <div text-center *ngIf="isLoading">
+        <ion-spinner color="primary"></ion-spinner>
+      </div>
+  
+      <ion-grid no-padding *ngIf="!isLoading">
+          <div *ngIf="recipe" class="content">
+
+          <div class="backdrop">
+              <div>
+                  <img [src]="recipe.maidIMG"/>
+                </div>
+                      </div>
+                      <div class="backdrop-separator1"></div>
+                      <div class="backdrop-separator2"></div>
+                    
+                      <div class="movie-header">
+ 
+                        <div class="movie-rating">
+                          <span>{{recipe.avg}}/10</span>
+                        </div>
+                      </div>
+          
+
+                <div class="poster">
+                    <img class="poster" [src]="recipe.coverPhotoUrl"/>
+                    <img class="poster-effect" [src]="recipe.coverPhotoUrl"/>                    
+                  </div>
+        
+              <div class="movie-rating">
+                <span>{{recipe.avg}}/10</span>
+              </div>
+
+            <div class="movie-info">
+                <ion-row>
+                <div class="movie-title">
+                  <span>
+                    {{recipe.title}}
+                  </span>
+                </div>
+              </ion-row>
+
+              <ion-slides pager="ios" class="slider-card" [options]="slideOpts">
+                  <ion-slide>
+                      <ion-item class="item-col">
+                      <ion-avatar slot="start">
+                        <img src="https://img.icons8.com/plasticine/2x/time.png" />
+                      </ion-avatar>
+                       <div class="text-primary text-bold text-11pt">Preparation: {{recipe.timeprep}} </div>
+                    </ion-item>
+                    <ion-item class="item-col">
+                        <ion-avatar slot="start">
+                          <img src="https://img.icons8.com/plasticine/2x/time.png" />
+                        </ion-avatar>
+                         <div class="text-primary text-bold text-11pt">Cooking: {{recipe.timecook}} </div>
+                      </ion-item>
+                    </ion-slide>
+                    <ion-slide>
+                      <ion-item class="item-col">
+                      <ion-avatar slot="start">
+                        <img src="https://image.flaticon.com/icons/png/512/1350/premium/1350083.png" />
+                      </ion-avatar>
+                       <div class="text-primary text-bold text-11pt">Calories : {{recipe.kal}} </div>
+                    </ion-item>
+                    <ion-item class="item-col">
+                        <ion-avatar slot="start">
+                          <img src="https://lh3.googleusercontent.com/8xYKol5rr2UzhKnjIKwIwYhLbHlQjUNPyeH1HRM784GT_xDA8eZbe8XYHPMCuqfuL8M2" />
+                        </ion-avatar>
+                         <div class="text-primary text-bold text-11pt">Fat : {{recipe.fat}} </div>
+                      </ion-item>
+                    </ion-slide>
+              </ion-slides> 
+
+              <div class="second-movie-user-actions">
+                  <div class="movie-rate" >
+                      <ion-icon name="star"
+                      *ngFor="let i of [1,2,3,4,5];" 
+                      [ngClass]="{'active': rate >= i}"
+                      ></ion-icon>
+                    </div>
+          
+                  <div class="movie-play">
+                    <ion-icon name="arrow-redo-outline"></ion-icon>
+                    <span (click)="link()" class="text"> Rate Recipe</span>
+                   </div>
+                </div>
+
+              <ion-row>
+               <div class="card">
+                <ion-card>
+                  <ion-card-header>
+                    <ion-card-title>
+                        <div class=title>
+                            <ion-icon name="book-outline"></ion-icon>
+                            <span class="text"> Overview</span>
+                          </div>
+                    </ion-card-title>
+                </ion-card-header>
+                  <ion-card-content>
+                      <div class="text">
+                        <ion-label>{{recipe.description.toString().split('@').join('\n')}}</ion-label>
+                       </div>
+                  </ion-card-content>
+                </ion-card>
+               </div>
+              </ion-row>
+                
+
+
+                </div>
+            </div>
+
+            <ion-card>
+                <ion-card-header>
+                    <ion-card-title>
+                        <div class=title>
+                            <ion-icon name="receipt-outline"></ion-icon>
+                            <span class="text"> Ingredients & Procedure </span>
+                          </div>
+                    </ion-card-title>
+                </ion-card-header>
+                <fiv-stepper #stepperV [mode]="'horizontal'">
+                  <fiv-step [title]="'Ingredients'" [subtitle]="'List'">
+                    <ion-card>
+                      <ion-card-header>
+                        <ion-card-title> List Ingredients:</ion-card-title>
+                      </ion-card-header>
+                      <ion-card-content >
+                        <p class="newlink">{{recipe.Ingredients.toString().split('@').join('\n')}} </p>                 
+                     </ion-card-content>
+                      <ion-toolbar>
+                        <ion-buttons slot="end">
+                          <ion-button color="primary" (click)="stepperV.select(1)">
+                            ▶ ▶ Procedure
+                          </ion-button>
+                        </ion-buttons>
+                      </ion-toolbar>
+                    </ion-card>
+                  </fiv-step>
+                  <fiv-step [title]="'Procedure'" [subtitle]="'List'">
+                    <ion-card>
+                      <ion-card-header>
+                        <ion-card-title> List Procedure: </ion-card-title>
+                      </ion-card-header>
+                      <ion-card-content>
+                        <p class="newlink">{{recipe.Procedure.toString().split('@').join('\n')}} </p>                                    
+                     </ion-card-content>
+                      <ion-toolbar>
+                        <ion-buttons slot="end">
+                          <ion-button color="primary" (click)="stepperV.select(0)">
+                            	◀	◀ Ingredients
+                          </ion-button>
+                        </ion-buttons>
+                      </ion-toolbar>
+                    </ion-card>
+                  </fiv-step>
+ 
+                </fiv-stepper>
+              </ion-card>
+
+            <ion-row>
+             <div class="card">
+              <ion-card>
+                <ion-card-header>
+                  <ion-card-title>
+                      <div class=title>
+                          <ion-icon name="bulb-outline"></ion-icon>
+                          <span class="text">  Tips </span>
+                        </div>
+                  </ion-card-title>
+              </ion-card-header>
+                <ion-card-content>
+                  <p>{{recipe.tips}} </p>                                    
+                </ion-card-content>
+              </ion-card>
+            </div>
+          </ion-row>
+        </ion-grid>
+</ion-content>

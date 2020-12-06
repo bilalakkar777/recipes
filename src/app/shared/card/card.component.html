@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="inner-card">
+      <div class="like-container">
+        <ion-icon [name]="likedIcon"></ion-icon>
+      </div>
+      <app-heading medium>
+          <ion-chip class="chip">
+              <ion-label >{{ Recipe.title }}</ion-label>
+          </ion-chip>
+      </app-heading>
+      <app-star-rating class="bottom-margin-1" [star]="Recipe.star"></app-star-rating>
+  </div>
+</div> 

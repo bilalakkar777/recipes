@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-toolbar
+      color="primary">
+      <ion-title style="width: 100%; text-align: center;">
+        Searsh For Recipes
+      </ion-title>
+    </ion-toolbar>
+    <ion-toolbar color="primary">
+      <ion-searchbar [placeholder]="'Search By Name'"
+                     animated
+                     (ionChange)="buscarUsuario( $event )">
+      </ion-searchbar>
+    </ion-toolbar>
+  </ion-header>
+  
+  
+  <ion-content padding>
+  
+    <ion-list *ngIf="recipes.length === 0">
+      <ion-item *ngFor="let i of [1,1,1,1,1,1,1,1]">
+        <ion-label>
+          <ion-skeleton-text width="40%"></ion-skeleton-text>
+          <ion-skeleton-text width="80%"></ion-skeleton-text>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  
+  
+    <ion-list *ngIf="recipes.length > 0">
+  
+      <ion-item *ngFor="let PPP of recipes | filter:textbar">
+        <ion-avatar slot="start">
+          <ion-img [src]="PPP.coverPhotoUrl"></ion-img>
+        </ion-avatar>
+        <ion-label>
+            <h5>{{ PPP.title }}</h5>
+            <p>{{ PPP.category  }}</p>
+        </ion-label>
+        <ion-button (click)="viewCard(PPP)"> See More</ion-button>
+      </ion-item>
+    </ion-list>
+  
+  </ion-content>
+  

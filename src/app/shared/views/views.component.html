@@ -1,0 +1,5 @@
+<ion-slides [options]="sliderOpts">
+    <ion-slide *ngFor="let rec of Recipes" (click)="viewCard(rec)">
+        <app-card [Recipe]="rec"></app-card>
+    </ion-slide>
+</ion-slides>

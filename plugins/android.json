@@ -1,0 +1,49 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-admob-free": {
+      "ADMOB_APP_ID": "<ca-app-pub-7365044242593591~8323942496>",
+      "PACKAGE_NAME": "com.gamecomx.healthytagine"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.gamecomx.healthytagine"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.gamecomx.healthytagine"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "com.gamecomx.healthytagine"
+    },
+    "cordova-plugin-ionic-webview": {
+      "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+",
+      "PACKAGE_NAME": "com.gamecomx.healthytagine"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.gamecomx.healthytagine"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.gamecomx.healthytagine"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.gamecomx.healthytagine"
+    },
+    "cordova-plugin-wkwebview-engine": {
+      "PACKAGE_NAME": "com.gamecomx.healthytagine"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-admob-sdk": {
+      "PLAY_SERVICES_VERSION": "11.0.4",
+      "PACKAGE_NAME": "com.gamecomx.healthytagine"
+    },
+    "cordova-promise-polyfill": {
+      "PACKAGE_NAME": "com.gamecomx.healthytagine"
+    }
+  }
+}
